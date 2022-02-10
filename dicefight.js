@@ -27,10 +27,7 @@ var dice1 = {
         result2 = dice2.roll();
         printNumber(result);
         printNumber2(result2);
-        
-        console.log(result);
-        console.log(result2);
-    }, rolltime(500,2500));
+    }, rolltime(700,3000));
 
   };
   function printNumber(number) {
@@ -44,28 +41,33 @@ var dice1 = {
   var button = document.getElementById('button');
   var sonuc;
   var i = 1;
+  var scorePY = 0;
+  var scorePC = 0;
+  score = "scorePY "|" scorePC";
   button.onclick = function() {
-   // for (var i = 1; i < 10; i++ )
-   document.getElementById("winner").innerHTML = " ";
+   document.getElementById("winner").innerHTML = "Ready for next round!";
    do{
         rollanimation();
         i++;
     }
-    while(i < 10);
+    while(i < 14);
     i=1;
     setTimeout(() =>{
     if ( result > result2 ) {
         sonuc ="Player Wins!";
+        scorePY = scorePY + 1;
+
     }
     else if( result < result2) {
         sonuc ="Pc Wins!";
+        scorePC = scorePC + 1;
     }
     else{
         sonuc = "Its a tie!";
     }
     document.getElementById("winner").innerHTML = sonuc;
-    console.log(result)
-}, 2500);
+    document.getElementById("skor").innerHTML = scorePY + " - " + scorePC;
+}, 3100);
   };
 
 

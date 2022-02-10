@@ -1,32 +1,100 @@
 * {
-    font-family: Helvetica, Arial, sans-serif;
     text-align: center;
+    margin: 0px;
+    background-color: rgb(121, 201, 174);
   }
+
+
+  @font-face {
+    font-family: dice;
+    src: url(fonts/Dice.ttf);
+  }
+
   button {
-    background-color: rgb(82, 186, 179);
-    border-radius: 6px;
-    border: none;
-    color: rgb(255, 255, 255);
+    position: absolute;
+    background-color: rgb(221, 235, 234);
+    border: 12px solid rgb(148, 148, 148); 
+    border-radius: 4px;
+    border-style: outset;
+    color: rgb(90, 90, 90);
     padding: 10px;
+    font-size: 30px;
     text-transform: uppercase;
-    width: 200px;
-    cursor: pointer;
+    width: 300px;
+    height: 75px;
+    left: 50%;
+    top: 70%;
+    margin: 0 0 0 -150px;
+    cursor: none;
+  }
+  button:hover{
+    font-weight: bold;
+    font-size: 30px;
+  }
+  button:active{
+    border-style: outset;
+    border: 6px solid rgb(110, 110, 110); 
   }
   #placeholder {
+    filter:invert(100%);
+    text-align:left;
+    text-indent: -54px;
+    line-height: 0.59;
+    font-family: dice;
+    color: rgb(15, 15, 14);
+    background-color: beige;
+    position: absolute;
     height: 100px;
     width: 100px;
     padding: 50px;
-    margin: 50px auto;
-    border: 5px solid rgb(117, 7, 7);
+    top: 25vh;
+    left: 25vw;
+    margin: -100px 0 0 -100px;
+    border: 28px solid rgb(53, 53, 47);
+    border-style:outset;
     border-radius: 10px;  
-    font-size:80px;
+    font-size:285px;
   }
   #placeholder2 {
+    filter:invert(100%);
+    text-align:left;
+    text-indent: -54px;
+    line-height: 0.59;
+    font-family: dice;
+    color: rgb(15, 15, 14);
+    background-color: beige;
+    position: absolute;
     height: 100px;
     width: 100px;
     padding: 50px;
-    margin: 50px auto;
-    border: 1px solid gray;
+    top: 25vh;
+    left: 75vw;
+    margin: -100px 0 0 -100px;
+    border: 28px solid rgb(53, 53, 47);
+    border-style:outset;
     border-radius: 10px;  
-    font-size:80px;
+    font-size:285px;
+  }
+  #skor{
+    height: 50px;
+    width: 50px;
+    padding: 50px;
+    margin: 50px auto;
+    border: 4px solid gray;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 24px;
+  }
+  #winner{
+    position: absolute;
+    background-color: rgb(204, 204, 204);
+    border: 4px solid rgb(156, 156, 156); 
+    border-radius: 4px;
+    border-style: inset;
+    color: rgb(94, 93, 93);
+    width: 160px;
+    height: 20px;
+    left: 50%;
+    top: 65%;
+    margin: 0 0 0 -80px;
   }
