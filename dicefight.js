@@ -39,6 +39,10 @@ var dice1 = {
   placeholder2.innerHTML = number2;
   }
   var button = document.getElementById('button');
+  var hpPY = document.getElementById("hpPY");
+  var hpPC = document.getElementById("hpPC");
+  var hptxtPY = document.getElementById("hptxtPY");
+  var hptxtPC = document.getElementById("hptxtPC");
   var sonuc;
   var i = 1;
   var scorePY = 0;
@@ -54,19 +58,33 @@ var dice1 = {
     i=1;
     setTimeout(() =>{
     if ( result > result2 ) {
-        sonuc ="Player Wins!";
-        scorePY = scorePY + 1;
-
+        sonuc ="Player Wins this round!";
+        hpPC.value = hpPC.value - result;
+        
     }
     else if( result < result2) {
-        sonuc ="Pc Wins!";
-        scorePC = scorePC + 1;
+        sonuc ="Pc Wins this round!";
+        hpPY.value = hpPY.value - result2;
     }
     else{
         sonuc = "Its a tie!";
     }
+    if (hpPY.value <= 0){
+      sonuc ="You Lost!";
+      scorePC = scorePC + 1;
+      hpPY.value = hpPY.max;
+      hpPC.value = hpPC.max;
+    }
+    else if (hpPC.value <= 0){
+      sonuc ="You Won!";
+      scorePY = scorePY + 1;
+      hpPY.value = hpPY.max;
+      hpPC.value = hpPC.max;
+    }
     document.getElementById("winner").innerHTML = sonuc;
     document.getElementById("skor").innerHTML = scorePY + " - " + scorePC;
+    document.getElementById("hptxtPY").innerHTML = hpPY.value + "%";
+    document.getElementById("hptxtPC").innerHTML = hpPC.value + "%";
 }, 3100);
   };
 
