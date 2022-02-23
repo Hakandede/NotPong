@@ -8,23 +8,21 @@
     <title>Dice Fight!</title>
 </head>
 <body>
-    <p id="placeholder">
-  
-    </p>
-    <progress id="hpPY" value="100" max="100"></progress>
+<div id="game">
+    <p id="placeholder">1</p>
+    <progress id="hpPY" value="" max=""></progress>
     <p class="hptxt" id="hptxtPY"></p>
-    <p id="placeholder2">
-  
-    </p>
-    <progress class="hpbar" id="hpPC" value="100" max="100"></progress>
+    <p id="coin">0</p>
+    <img src="coin.png" id="coinico"></img>
+    <p id="placeholder2">1</p>
+    <progress class="hpbar" id="hpPC" value="" max=""></progress>
     <p class="hptxt" id="hptxtPC"></p>
-    <p id="winner">
-Ready for next!
-    </p>
-    <p id="skor">
-        0 - 0
-    </p>
-    <button id="button">Roll Dice</button>
+    <p id="level">Level: 1</p>
+    <p id="winner">Ready for next battle!</p>
+    <button class="buttons" id="restart">Restart</button>
+    <button class="buttons" id="highscore">High Scores</button>
+    <button class="buttons" id="rollDice">Roll Dice</button>
     <script src="dicefight.js"></script>
+</div>
 </body>
 </html>
