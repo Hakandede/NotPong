@@ -110,7 +110,7 @@ var i = 1;
 var level = 1;
 var scorePC = 0;
 var coinCalc = 0;
- hpPY.max = 10;
+ hpPY.max = 1;
 hpPC.max = 10;
 hpPY.value = hpPY.max;
 hpPC.value = hpPC.max;
@@ -182,6 +182,7 @@ setTimeout(() =>{
           rollDice.disabled = true;
           rollDice.style.color = "grey";
           rollDice.style.fontSize = "29px";
+          PCsides = 3;
         }
       else if (hpPC.value <= 0){  //IF PC DIES
           winner.style.color = "green";
