@@ -37,6 +37,14 @@ cursor: url(data/cursor.png), default;
     font-family: dicey;
     src: url(fonts/Dicey.ttf);
   }
+  @font-face {
+    font-family: lionDice;
+    src: url(fonts/liontype-dice.ttf);
+  }
+  @font-face {
+    font-family: d20;
+    src: url(fonts/d20.ttf);
+  }
   .buttons{
     position: absolute;
     background-color: rgb(221, 235, 234);
@@ -192,7 +200,7 @@ cursor: url(data/cursor.png), default;
     border: 7px solid rgb(158, 89, 67);
     border-radius: 3.4px;
     border-style: outset;
-    top: 50%;
+    top: 51%;
     left: 4.2%;
     width: 250px;
     height: 40px;
@@ -202,7 +210,7 @@ cursor: url(data/cursor.png), default;
     border: 7px solid rgb(158, 89, 67);
     border-radius: 3.4px;
     border-style: outset;
-    top: 50%;
+    top: 51%;
     left: 68.1%;
     width: 250px;
     height: 40px;
@@ -215,31 +223,36 @@ cursor: url(data/cursor.png), default;
     font-family: alagard;
   }
   .hptxt#hptxtPY{
-    top: 47.8%;
+    top: 48.8%;
     left: 12.5%;
   }
   .hptxt#hptxtPC{
-    top: 47.8%;
+    top: 48.8%;
     left: 76%;
     font-family: alagard;
   }
   .diceCounter{
     position:absolute;
-    background-color: rgb(55, 100, 36);
-    border: 4px inset rgb(141, 141, 141);
-    border-radius: 3px;
-    padding-left: 5px;
-    width: 220px;
-    font-family: dicey;
-    font-weight: bolder;
+    display: flex;
+    background-color: rgb(255, 215, 0);
+    rgb(248, 248, 248);
+    border: 2px inset rgb(141, 141, 141);
+    border-radius: 28px;
+    width: 100px;
+    height: 50px;
+    padding-left: 6px;
+    line-height: 50px;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: d20;
   }
   #diceCounterPY{
-    top: 41.1%;
-    left: 5.5%;
+    top: 35.8%;
+    left: 12.3%;
   }
   #diceCounterPC{
-    top: 41.1%;
-    left: 69.5%;
+    top: 35.8%;
+    left: 76.5%;
   }
   #coin{
     position: absolute;
