@@ -114,6 +114,7 @@ var i = 1;
 var level = 1;
 var scorePC = 0;
 var coinCalc = 0;
+
  hpPY.max = 10;
 hpPC.max = 10;
 hpPY.value = hpPY.max;
@@ -137,9 +138,6 @@ rollDice.onclick = function() {
     wincond(coinCalc);
 
 
-var wincoin = coinCalc * level + 2;
-var loscoin = coinCalc + 1;
-
 //Duration of the dice roll animation
       do{
         rollanimation();
@@ -147,24 +145,33 @@ var loscoin = coinCalc + 1;
         }
       while(i < 14);
         i=1;
+
 setTimeout(() =>{
 
 
+  var dmg = result-result2;
+  var wincoin = coinCalc * level + dmg;
+  var loscoin = coinCalc + 1;
+  console.log(dmg)
+
+
   if ( result > result2 ) { //IF PLAYER WINS
-        sonuc = sonuc + "Player hits " + result + " dmg!"  + "<br>" + "Earned + " + wincoin.toFixed(2) + " coins!" + "<br>";
-        hpPC.value = hpPC.value - result;
+        sonuc = sonuc + "Player hits " + dmg + " dmg!"  + "<br>" + "Earned + " + wincoin.toFixed(2) + " coins!" + "<br>";
+        hpPC.value = hpPC.value - dmg;
         coin = coin + wincoin;
         buttonStateOn();
+        refreshValues();
         rollDice.disabled = false;
         rollDice.style.color = "";
         rollDice.style.fontSize ="";
         
     }
   else if( result < result2) { //IF PC WINS
-        sonuc = sonuc + "Pc hits " + result2 + " dmg!" + "<br>" + "Earned +"+ loscoin.toFixed(2) + "<br>";
-        hpPY.value = hpPY.value - result2;
+        sonuc = sonuc + "Pc hits " + dmg + " dmg!" + "<br>" + "Earned +"+ loscoin.toFixed(2) + "<br>";
+        hpPY.value = hpPY.value + dmg;
         coin = coin + loscoin;
         buttonStateOn();
+        refreshValues();
         rollDice.disabled = false;
         rollDice.style.color = "";
         rollDice.style.fontSize ="";
@@ -172,6 +179,7 @@ setTimeout(() =>{
   else{
         sonuc = sonuc +"Its a tie!" + "<br>" ;
         buttonStateOn();
+        refreshValues();
         rollDice.disabled = false;
         rollDice.style.color = "";
         rollDice.style.fontSize ="";
@@ -201,9 +209,12 @@ setTimeout(() =>{
 
   //Outputing and resetting values
   winner.innerHTML = sonuc;
+  PYsides = 6;
+  diceCounterPY.style.fontWeight = "100";
+  diceCounterPC.style.fontWeight = "100";
+  diceCounterPY.style.color = "";
   refreshValues();
   winner.scrollTop = winner.scrollHeight;
-  PYsides = 6;
 }, 3100);
 
 
@@ -250,11 +261,12 @@ setTimeout(() =>{
     if(coin >= 2 && PYsides < 9){
       PYsides = PYsides + 1;
       coin = coin - 2;
+      sonuc = sonuc + "Dice side expaned 1 for one round!" + "<br>";
+      diceCounterPY.style.fontWeight = "bold";
+      diceCounterPY.style.color = "rgb(255, 215, 0)";
       refreshValues();
-      sonuc = sonuc + "Dice side expaned 2 for one round!" + "<br>";
-      console.log(PYsides);
     }
-    else if(PYsides >= 8){
+    else if(PYsides >= 9){
       sonuc = sonuc + "Dice has reached its capacity" + "<br>";
     }
       else{
