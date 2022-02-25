@@ -6,12 +6,14 @@ var maxHp = document.getElementById("maxHp");
 var diceBoost = document.getElementById("diceBoost");
 var hpPY = document.getElementById("hpPY");
 var hpPC = document.getElementById("hpPC");
+var diceCounterPY = document.getElementById("diceCounterPY");
+var diceCounterPC =document.getElementById("diceCounterPC");
 var hptxtPY = document.getElementById("hptxtPY");
 var hptxtPC = document.getElementById("hptxtPC");
 var winner = document.getElementById("winner");
 
 
-var Psides = 6;
+var PYsides = 6;
 var PCsides = 3;
 var PCsidesmulti = 1;
 
@@ -20,7 +22,7 @@ var PCsidesmulti = 1;
 
 var dice1 = { 
       roll: function () {
-        var randomNumber1 = Math.floor(Math.random() * Psides) + 1;
+        var randomNumber1 = Math.floor(Math.random() * PYsides) + 1;
         return randomNumber1;
     }
   }
@@ -101,6 +103,8 @@ var dice1 = {
     document.getElementById("hptxtPC").innerHTML = hpPC.value +" / "+ hpPC.max + " hp";
     document.getElementById("level").innerHTML = "Level: " + level;
     document.getElementById("coin").innerHTML = coin.toFixed(2);
+    diceCounterPY.innerHTML = PYsides;
+    diceCounterPC.innerHTML = PCsides;
   }
 
 
@@ -199,7 +203,7 @@ setTimeout(() =>{
   winner.innerHTML = sonuc;
   refreshValues();
   winner.scrollTop = winner.scrollHeight;
-  Psides = 6;
+  PYsides = 6;
 }, 3100);
 
 
@@ -243,14 +247,14 @@ setTimeout(() =>{
 //Dice side boots button
 
   diceBoost.onclick = function(){
-    if(coin >= 2 && Psides < 9){
-      Psides = Psides + 1;
+    if(coin >= 2 && PYsides < 9){
+      PYsides = PYsides + 1;
       coin = coin - 2;
       refreshValues();
       sonuc = sonuc + "Dice side expaned 2 for one round!" + "<br>";
-      console.log(Psides);
+      console.log(PYsides);
     }
-    else if(Psides >= 8){
+    else if(PYsides >= 8){
       sonuc = sonuc + "Dice has reached its capacity" + "<br>";
     }
       else{
