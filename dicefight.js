@@ -13,9 +13,9 @@ var hptxtPC = document.getElementById("hptxtPC");
 var winner = document.getElementById("winner");
 
 
-var PYsides = 6;
+var PYsides = 100;
 var PCsides = 3;
-var PCsidesmulti = 1;
+var PCsidesmin = 1;
 
 
 //Random number functions for dices
@@ -29,7 +29,7 @@ var dice1 = {
   var dice2 = {
     sides: PCsides,
       roll: function () {
-        var randomNumber2 = Math.floor(Math.random() * PCsides) + PCsidesmulti;
+        var randomNumber2 = Math.floor(Math.random() * PCsides) + PCsidesmin;
         return randomNumber2;
     }
   }
@@ -111,11 +111,13 @@ var dice1 = {
 var coin = 0;
 var sonuc = "";
 var i = 1;
-var level = 1;
+var level = 6;
 var scorePC = 0;
 var coinCalc = 0;
+var reTurn;
+var PCmultplier = 1;
 
- hpPY.max = 10;
+hpPY.max = 10;
 hpPC.max = 10;
 hpPY.value = hpPY.max;
 hpPC.value = hpPC.max;
@@ -152,60 +154,69 @@ setTimeout(() =>{
   var dmg = result-result2;
   var wincoin = coinCalc * level + dmg;
   var loscoin = coinCalc + 1;
-  console.log(dmg)
 
 
   if ( result > result2 ) { //IF PLAYER WINS
-        sonuc = sonuc + "Player hits " + dmg + " dmg!"  + "<br>" + "Earned + " + wincoin.toFixed(2) + " coins!" + "<br>";
-        hpPC.value = hpPC.value - dmg;
-        coin = coin + wincoin;
-        buttonStateOn();
-        refreshValues();
-        rollDice.disabled = false;
-        rollDice.style.color = "";
-        rollDice.style.fontSize ="";
-        
-    }
-  else if( result < result2) { //IF PC WINS
-        sonuc = sonuc + "Pc hits " + dmg + " dmg!" + "<br>" + "Earned +"+ loscoin.toFixed(2) + "<br>";
-        hpPY.value = hpPY.value + dmg;
-        coin = coin + loscoin;
-        buttonStateOn();
-        refreshValues();
-        rollDice.disabled = false;
-        rollDice.style.color = "";
-        rollDice.style.fontSize ="";
-    }
-  else{
-        sonuc = sonuc +"Its a tie!" + "<br>" ;
-        buttonStateOn();
-        refreshValues();
-        rollDice.disabled = false;
-        rollDice.style.color = "";
-        rollDice.style.fontSize ="";
-    }
-      if (hpPY.value <= 0){ //IF PLAYER DIES
-          winner.style.color = "red";
-          scorePC = scorePC + 1;
-          sonuc ="You Lost!" + "<br>";
-          restart.style.visibility = "visible";
-          highscores.style.visibility = "visible";  
-          buttonStateOff();
-          rollDice.disabled = true;
-          rollDice.style.color = "grey";
-          rollDice.style.fontSize = "29px";
-          PCsides = 3;
-        }
-      else if (hpPC.value <= 0){  //IF PC DIES
-          winner.style.color = "green";
-          level = level + 1;
-          PCsides = PCsides + 1;
-          sonuc ="Next level!" + "<br>" +"Enemy got stronger!"+ "<br>" + "Health regenerated" + "<br>" + "+"+wincoin.toFixed(2) + " earned" + "<br>";
-          hpPC.max = 5 + level*5;
+          sonuc = sonuc + "Player hits " + dmg + " dmg!"  + "<br>" + "Earned + " + wincoin.toFixed(2) + " coins!" + "<br>";
+          hpPC.value = hpPC.value - dmg;
+          coin = coin + wincoin;
           buttonStateOn();
-          hpPY.value = hpPY.max;
-          hpPC.value = hpPC.max;
-        }
+          refreshValues();
+          rollDice.disabled = false;
+          rollDice.style.color = "";
+          rollDice.style.fontSize ="";
+          
+      }
+    else if( result < result2) { //IF PC WINS
+          dmg = Math.abs(dmg);
+          sonuc = sonuc + "Pc hits " + dmg + " dmg!" + "<br>" + "Earned +"+ loscoin.toFixed(2) + "<br>";
+          hpPY.value = hpPY.value - dmg;
+          coin = coin + loscoin;
+          buttonStateOn();
+          refreshValues();
+          rollDice.disabled = false;
+          rollDice.style.color = "";
+          rollDice.style.fontSize ="";
+      }
+      else{
+            sonuc = sonuc +"Its a tie!" + "<br>" ;
+            buttonStateOn();
+            refreshValues();
+            rollDice.disabled = false;
+            rollDice.style.color = "";
+            rollDice.style.fontSize ="";
+      }
+  if (hpPY.value <= 0){ //IF PLAYER DIES
+      winner.style.color = "red";
+      scorePC = scorePC + 1;
+      sonuc ="You Lost!" + "<br>";
+      restart.style.visibility = "visible";
+      highscores.style.visibility = "visible";  
+      buttonStateOff();
+      rollDice.disabled = true;
+      rollDice.style.color = "grey";
+      rollDice.style.fontSize = "29px";
+      PCsides = 3;
+    }
+  else if (hpPC.value <= 0){  //IF PC DIES
+      winner.style.color = "green";
+      level = level + 1;
+    if(level > 7){
+        level = 1;
+        PCsides = 3;
+        reTurn = reTurn + 1
+        PCmultplier = PCmultplier*1.25;
+      }
+      PCsides = PCsides + 1;
+      sonuc ="Next level!" + "<br>" +"Enemy got stronger!"+ "<br>" + "Health regenerated" + "<br>" + "+"+wincoin.toFixed(2) + " earned" + "<br>";
+      hpPC.max = 5 + level*5;
+      buttonStateOn();
+      hpPY.value = hpPY.max;
+      hpPC.value = hpPC.max;
+      console.log(reTurn);
+      console.log(PCsides);
+    }
+
 
   //Outputing and resetting values
   winner.innerHTML = sonuc;
