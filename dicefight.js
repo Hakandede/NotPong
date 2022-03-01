@@ -100,13 +100,14 @@ var dice1 = {
   //Refresh function for output values
 
   function refreshValues(){
+
+    diceCounterPY.innerHTML = PYsides;
+    diceCounterPC.innerHTML = PCsides;
+    PCmult.innerHTML = "x"+PCmultipli.toFixed(2);
     document.getElementById("hptxtPY").innerHTML = hpPY.value +" / "+ hpPY.max +" hp";
     document.getElementById("hptxtPC").innerHTML = hpPC.value +" / "+ hpPC.max + " hp";
     document.getElementById("level").innerHTML = "Level: " + level;
     document.getElementById("coin").innerHTML = coin.toFixed(2);
-    diceCounterPY.innerHTML = PYsides;
-    diceCounterPC.innerHTML = PCsides;
-    PCmult.innerHTML = "x"+PCmultipli.toFixed(2);
   }
 
 
@@ -208,6 +209,8 @@ setTimeout(() =>{
             level = 1;
             PCsides = 3;
             hpPC.max = 5 + level*5;
+            hpPY.value = hpPY.max;
+            hpPC.value = hpPC.max;
             //reTurn = reTurn + 1
             PCmultipli = PCmultipli*1.25;
             console.log(PCmulti);

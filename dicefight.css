@@ -261,6 +261,14 @@ cursor: url(data/cursor.png), default;
     font-size: 22px;
 
   }
+  #PYmult{
+    position: absolute;
+    top:42.8%;
+    left: 18%;
+    font-family: alagard;
+    font-size: 22px;
+
+  }
   #coin{
     position: absolute;
     color: rgb(36, 36, 36);
