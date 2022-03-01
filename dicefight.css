@@ -253,6 +253,14 @@ cursor: url(data/cursor.png), default;
     top: 35.8%;
     left: 76.5%;
   }
+  #PCmult{
+    position: absolute;
+    top:42.8%;
+    left: 82%;
+    font-family: alagard;
+    font-size: 22px;
+
+  }
   #coin{
     position: absolute;
     color: rgb(36, 36, 36);
