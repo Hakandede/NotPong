@@ -1,0 +1,491 @@
+
+*{
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+cursor: url(data/cursor.png), default;
+}
+  body{
+    background-color: rgb(0, 61, 15);
+  }
+  #game
+  {
+    position: relative;
+    width: 900px;
+    height: 700px;
+    top: 50vh;
+    left: 50vw;
+    margin: -420px 0 0 -540px;
+    border: 75px rgb(121, 69, 1);
+    border-style: outset;
+    border-radius: 8px;  
+    background-color: rgb(58, 119, 0);
+  }
+#score{
+  position: absolute;
+    text-align: center;
+    width: 300px;
+    margin: 10px 0 0 -150px;
+    left: 50%;
+    top: 50%;
+    font-family: alagard;
+    font-size: 42px;
+    color: rgb(15, 7, 19);
+  
+}
+
+  @font-face {
+    font-family: dice;
+    src: url(fonts/Dice.ttf);
+  }
+  @font-face {
+    font-family: alagard;
+    src: url(fonts/alagard.ttf);
+  }
+  @font-face {
+    font-family: dicey;
+    src: url(fonts/Dicey.ttf);
+  }
+  @font-face {
+    font-family: lionDice;
+    src: url(fonts/liontype-dice.ttf);
+  }
+  @font-face {
+    font-family: d20;
+    src: url(fonts/d20.ttf);
+  }
+  .buttons{
+    position: absolute;
+    background-color: rgb(221, 235, 234);
+    border: 12px solid rgb(148, 148, 148); 
+    border-radius: 4px;
+    border-style: outset;
+    color: rgb(19, 19, 19);
+    cursor: url(data/cursor_butt.png), pointer; 
+
+    font-family: alagard;
+  }
+  .buttons:hover{
+    font-weight: bold;
+  }
+  #rollDice {
+    top: 82.8%;
+    left: 50%;
+    color: rgb(19, 19, 19);
+    font-size: 35px;
+    text-transform: uppercase;
+    width: 300px;
+    height: 75px;
+    margin: 0 0 0 -150px;
+  }
+
+  #restart{
+      top: 70.8%;
+      left: 50%;
+      font-size: 35px;
+      text-transform: uppercase;
+      width: 280px;
+      height: 75px;
+      margin: 0 0 0 -140px;
+    }
+  #highscore{
+      top: 58.8%;
+      left: 50%; 
+      font-size: 35px;
+      text-transform: uppercase;
+      width: 280px;
+      height: 75px;
+      margin: 0 0 0 -140px;
+    }
+  #refillHp{
+    text-align: left;
+    font-size: 19px;
+    width: 210px;
+    height: 60px;
+    top: 65%;
+    left: 4%;
+    border: 9px solid rgb(148, 148, 148); 
+    border-radius: 2px;
+    border-style: outset;
+  }
+  #maxHp{
+    text-align: left;
+    font-size: 19px;
+    width: 210px;
+    height: 60px;
+    top: 75%;
+    left: 4%;
+    border: 9px solid rgb(148, 148, 148); 
+    border-radius: 2px;
+    border-style: outset;
+  }
+  #diceBoost{
+    text-align: left;
+    font-size: 19px;
+    width: 210px;
+    height: 60px;
+    top: 85%;
+    left: 4%;
+    border: 9px solid rgb(148, 148, 148); 
+    border-radius: 2px;
+    border-style: outset;
+  }
+    #highscore:active{
+      border-style: outset;
+      border: 6px solid rgb(110, 110, 110); 
+      font-size: 29px;
+    }
+    #restart:active{
+      border-style: outset;
+      border: 6px solid rgb(110, 110, 110); 
+      font-size: 29px;
+    }
+    #rollDice:active{
+      border-style: outset;
+      border: 6px solid rgb(110, 110, 110); 
+      font-size: 29px;
+    }
+    #refillHp:active{
+      border-style: outset;
+      border: 6px solid rgb(184, 184, 184); 
+      font-size: 18px;
+    }
+    #maxHp:active{
+      border-style: outset;
+      border: 6px solid rgb(184, 184, 184);  
+      font-size: 18px;
+    }
+    #diceBoost:active{
+      border-style: outset;
+      border: 6px solid rgb(184, 184, 184); 
+      font-size: 18px;
+    }
+
+  #placeholder {
+    position: absolute;
+    left: 15%;
+    top: 20%;
+    filter:invert(100%);
+    text-align:left;
+    text-indent: -54px;
+    line-height: 0.59;
+    font-family: dice;
+    color: rgb(5, 5, 5);
+    background-color: beige;
+    height: 100px;
+    width: 100px;
+    padding: 50px;
+    margin: -100px 0 0 -100px;
+    border: 28px solid rgb(53, 53, 47);
+    border-style:outset;
+    border-radius: 10px;  
+    font-size:285px;
+
+  }
+  #placeholder2 {
+    position: absolute;
+    left: 79%;
+    top: 20%;
+    filter:invert(100%);
+    text-align:left;
+    text-indent: -54px;
+    line-height: 0.59;
+    font-family: dice;
+    color: rgb(15, 15, 14);
+    background-color: beige;
+    height: 100px;
+    width: 100px;
+    padding: 50px;
+    margin: -100px 0 0 -100px;
+    border: 28px solid rgb(53, 53, 47);
+    border-style:outset;
+    border-radius: 10px;  
+    font-size:285px;
+    right: 100vh;
+  }
+  
+  #hpPY{
+    position: absolute;
+    border: 7px solid rgb(158, 89, 67);
+    border-radius: 3.4px;
+    border-style: outset;
+    top: 51%;
+    left: 4.2%;
+    width: 250px;
+    height: 40px;
+  }
+  #hpPC{
+    position: absolute;
+    border: 7px solid rgb(158, 89, 67);
+    border-radius: 3.4px;
+    border-style: outset;
+    top: 51%;
+    left: 68.1%;
+    width: 250px;
+    height: 40px;
+  }
+  .hptxt{
+    position: absolute;
+    text-align: center;
+    background-color:rgba(240, 248, 255, 0);
+    font-size: 24px;
+    font-family: alagard;
+  }
+  .hptxt#hptxtPY{
+    top: 48.8%;
+    left: 12.5%;
+  }
+  .hptxt#hptxtPC{
+    top: 48.8%;
+    left: 76%;
+    font-family: alagard;
+  }
+  .diceCounter{
+    position:absolute;
+    display: flex;
+    background-color: rgb(248, 248, 248);
+    border: 2px inset rgb(141, 141, 141);
+    border-radius: 28px;
+    width: 100px;
+    height: 50px;
+    padding-left: 6px;
+    line-height: 50px;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: d20;
+  }
+  #diceCounterPY{
+    top: 35.8%;
+    left: 12.3%;
+  }
+  #diceCounterPC{
+    top: 35.8%;
+    left: 76.5%;
+  }
+  #PCmult{
+    position: absolute;
+    top:42.8%;
+    left: 82%;
+    font-family: alagard;
+    font-size: 22px;
+
+  }
+  #PYmult{
+    position: absolute;
+    top:42.8%;
+    left: 18%;
+    font-family: alagard;
+    font-size: 22px;
+
+  }
+  #coin{
+    position: absolute;
+    color: rgb(36, 36, 36);
+    top: 55.5%;
+    left: 8%;
+    width: 200px;
+    font-size: 24px;
+    font-family: alagard;
+  }
+  .coinico{
+      z-index: 1;
+      position: absolute;
+      width: 24px;
+    }
+    .coinico:hover{
+      cursor: none;
+    }
+    #coinbank{
+      top: 59%;
+      left: 4%;
+    }
+    #refillCoin{
+      top: 67.4%;
+      left: 23%;
+    }
+    #maxCoin{
+      top: 77%;
+      left: 23%;
+    }
+    #diceCoin{
+      top: 87.2%;
+      left: 23%;
+    }
+    
+#level{
+    position: absolute;
+    text-align: center;
+    width: 300px;
+    margin: 10px 0 0 -150px;
+    left: 50%;
+    font-family: alagard;
+    font-size: 42px;
+    color: rgb(15, 7, 19);
+  }
+  #winner{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    background-color: rgb(204, 204, 204);
+    border: 6px rgb(156, 156, 156); 
+    border-radius: 4px;
+    border-style: inset;
+    color: rgb(68, 68, 68);
+    width: 200px;
+    height: 214px;
+    margin: 0 0 0 -108.5px;
+    padding-left: 5px;
+    font-size: 20px;
+    font-family: alagard;
+    overflow: scroll;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    overflow-wrap: break-word;
+  }
+  #highscoreForm{
+    z-index: 100;
+    position: absolute;
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    margin: 0 0 0 -150px;
+    top: 10%;
+    left: 47.8%;
+    background-color: rgb(204, 204, 204);
+    border: 20px rgb(156, 156, 156); 
+    border-radius: 4px;
+    border-style: outset;
+    font-family: alagard;
+    font-size: 30px;
+  }
+  #formFiller{
+    z-index: 0;
+    position: absolute;
+    width: 340px;
+    height: 370px;
+    margin: 0 0 0 -170px;
+    top: 12%;
+    left: 53%;
+    background-color: rgb(20, 20, 20, 0.5);
+    border: 20px rgba(31, 31, 31, 0.5); 
+    border-radius: 8px;
+
+  }
+  #scoreForm{
+    font-size: 40px;
+  }
+  #info{
+    position: absolute;
+    text-align: center;
+    width: 300px;
+    margin: 0 0 0 -150px;
+    bottom: -14%;
+    left: 50%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12px;
+  }
+
+
+
+  /* For Firefox */
+progress::-moz-progress-bar {
+    background: rgb(16, 192, 16);
+}
+
+/* For Chrome or Safari */
+progress::-webkit-progress-value {
+    background: rgb(16, 192, 16);
+}
+
+/* For IE10 */
+progress {
+    background: rgb(16, 192, 16);
+}
+
+#highScoreBoard
+{
+  position: relative;
+  width: 500px;
+  height: 700px;
+  top: 50vh;
+  left: 50vw;
+  margin: -420px 0 0 -250px;
+  border: 50px rgb(172, 172, 172);
+  border-style: outset;
+  border-radius: 8px;  
+  background-color: rgb(189, 188, 188);
+}
+#hallOffame{
+  position: absolute;
+  text-align: center;
+  color: rgb(122, 122, 122);
+  width: 300px;
+  top: 3%;
+  left: 50%;
+  margin: 0 0 0 -150px;
+  font-family: alagard;
+  font-size: 40px;
+}
+#listHighscorename{
+  position: absolute;
+  top: 12%;
+  left: 4%;
+  height: 500px;
+  width: 460px;
+  font-family: alagard;
+  font-size: 25px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+#listHighscorescore{
+  position: absolute;
+  top: 12%;
+  left: 40%;
+  height: 500px;
+  width: 460px;
+  font-family: alagard;
+  font-size: 25px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: center;
+}
+#listElem{
+  border: 5px rgb(172, 172, 172);
+  height: 40px;
+  padding-top: 16px;
+  border-style: inset;
+  border-radius: 1px;  
+
+}
+#listscore{
+  border: 5px rgba(172, 172, 172, 0);
+  height: 40px;
+  padding-top: 16px;
+  border-style: inset;
+  border-radius: 1px;  
+}
+#returnGame{
+  position: absolute;
+  width: 300px;
+  height: 80px;
+  margin: 0 0 0 -150px;
+  bottom: 2%;
+  left: 50%;
+  font-size: 35px;
+}  
+    #returnGame:active{
+    border-style: outset;
+    border: 6px solid rgb(110, 110, 110); 
+    font-size: 30px;
+  }
