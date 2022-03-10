@@ -271,7 +271,7 @@ setTimeout(() =>{
 
   //Outputing and resetting values
   winner.innerHTML = sonuc;
-  PYsides = 100;
+  PYsides = 6;
   diceCounterPY.style.fontWeight = "100";
   diceCounterPC.style.fontWeight = "100";
   diceCounterPY.style.color = "";
@@ -283,7 +283,6 @@ setTimeout(() =>{
 //Restroe hp button
 
   refillHp.onclick = function(){
-    PCsides = 10000;
     if(coin >= 3 && hpPY.value < hpPY.max){
       hpPY.value = hpPY.value + 3;
       coin = coin - 3;
